@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <% include ../partials/head %>
+
+
+<style media="screen">
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial;
+}
+
+/* The grid: Four equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+}
+
+/* Style the images inside the grid */
+.column img {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.column img:hover {
+    opacity: 1;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* The expanding image container */
+.container {
+    position: relative;
+    display: none;
+}
+
+/* Expanding image text */
+#imgtext {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: white;
+    font-size: 20px;
+}
+
+/* Closable button inside the expanded image */
+.closebtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+}
+</style>
+</head>
+<link rel="stylesheet" href="css/styles.css">
+<body>
+  <header>
+      <% include ../partials/header1 %>
+    </header>
+  <div id="top">
+
+  </div>
+<div id="featured">
+  <div class="ft">
+    <img src="img/Mauritius/018.jpg" alt="" border="60" style="width:100%; height:500px; color: white;">
+  </div>
+<div class="about">
+<h1>About Mauritius</h1>
+<p>Mauritius, an Indian Ocean island nation, is known for its beaches, lagoons and reefs. The mountainous interior includes Black River Gorges National Park, with rainforests, waterfalls, hiking trails and wildlife like the flying fox. Capital Port Louis has sites such as the Champs de Mars horse track, Eureka plantation house and 18th-century Sir Seewoosagur Ramgoolam Botanical Gardens.</p>
+</div>
+</div>
+
+<!-- The four columns -->
+<div id="gallary">
+
+<h1 style="text-align:center;">Destination Gallery</h1>
+
+<div class="row">
+  <div class="column">
+    <img src="img/Mauritius/003.jpg" alt="📍Mauritius" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="img/Mauritius/005.jpg" alt="📍Mauritius" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="img/Mauritius/017.jpg" alt="📍Mauritius" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="img/Mauritius/019.jpg" alt="📍Mauritius" style="width:100%" onclick="myFunction(this);">
+  </div>
+
+
+</div>
+
+<div class="container">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+  <img id="expandedImg" style="width:100%">
+  <div id="imgtext"></div>
+</div>
+</div>
+<div id="map">
+<h1 style="color:white; text-align: center;">Destination Location</h1>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1917103.2514732312!2d56.55407286339983!3d-20.203092627519975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x217c504df94474c9%3A0x4203d9c2116bd031!2sMauritius!5e0!3m2!1sen!2sza!4v1527498793907" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div>
+<script>
+function myFunction(imgs) {
+    var expandImg = document.getElementById("expandedImg");
+    var imgText = document.getElementById("imgtext");
+    expandImg.src = imgs.src;
+    imgText.innerHTML = imgs.alt;
+    expandImg.parentElement.style.display = "block";
+}
+</script>
+
+</body>
+</html>
